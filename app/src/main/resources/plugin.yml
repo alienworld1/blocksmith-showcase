@@ -1,0 +1,21 @@
+name: BlocksmithShowcase
+version: 1.0.0
+main: io.papermc.blocksmith.BlocksmithShowcase
+description: Blocksmith's showcase
+author: alienworld1
+website: https://github.com/alienworld1/blocksmith-showcase
+api-version: "1.21" 
+depend: [Multiverse-Core]
+
+permissions:
+  permission.blocksmith.admin:
+    description: "blocksmith admin"
+    default: op
+
+commands:
+  blocksmith:
+    description: "blocksmith's showcase command"
+    usage: "/blocksmith"
+    aliases: [blocksmith, bs]
+    permission: permission.blocksmith.admin
+    permission-message: "You do not have permission to use this command!"
