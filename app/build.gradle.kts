@@ -21,6 +21,10 @@ repositories {
         name = "multiverse"
         url = uri("https://repo.onarandombox.com/content/groups/public/")
     }
+    maven {
+        name = "worldedit"
+        url = uri("https://maven.enginehub.org/repo/com/sk89q/worldedit/worldedit-core/")
+    }
 
 }
 
@@ -35,6 +39,7 @@ dependencies {
 
     compileOnly("io.papermc.paper:paper-api:1.21-R0.1-SNAPSHOT")
     compileOnly("org.mvplugins.multiverse.core:multiverse-core:5.0.0-SNAPSHOT")
+    compileOnly("com.sk89q.worldedit:worldedit-core:7.3.9")
 }
 
 // Apply a specific Java toolchain to ease working on different environments.

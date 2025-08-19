@@ -50,6 +50,7 @@ public class BlocksmithCommand {
             player.sendMessage(Component.text("sending you to the lobby..."));
             player.teleport(lobby);
             player.setGameMode(GameMode.ADVENTURE);
+            player.getInventory().clear();
           });
         return Command.SINGLE_SUCCESS;
       });
