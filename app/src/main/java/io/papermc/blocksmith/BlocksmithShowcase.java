@@ -8,6 +8,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.scheduler.BukkitScheduler;
 
 import io.papermc.paper.plugin.lifecycle.event.types.LifecycleEvents;
 
@@ -23,6 +24,7 @@ public class BlocksmithShowcase extends JavaPlugin implements Listener {
       commands.registrar().register(BlocksmithCommand.createCommand("blocksmith"), "Blocksmith's showcase admin command");
       commands.registrar().register(BreakableCommand.createCommand("breakable"), "Protect blocks from being broken");
     });
+
   }
 
   @Override
