@@ -3,7 +3,6 @@ package io.papermc.blocksmith;
 
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
-import org.bukkit.command.CommandSender;
 import org.bukkit.Location;
 
 import com.mojang.brigadier.tree.LiteralCommandNode;
@@ -16,7 +15,7 @@ import net.kyori.adventure.text.Component;
 
 
 public class BlocksmithCommand {
-  private static Location waitingRoomLocation = new Location(Bukkit.getWorld("superflat-world"), -43, -60, 183);
+  private static Location waitingRoomLocation = new Location(Bukkit.getWorld("superflat-world"), -40, -58, 186);
   private static Location lobby = new Location(Bukkit.getWorld("lobby"), -65, 91, 123);
 
   public static LiteralCommandNode<CommandSourceStack> createCommand(final String commandName) {

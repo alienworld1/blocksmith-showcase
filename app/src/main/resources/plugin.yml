@@ -19,3 +19,10 @@ commands:
     aliases: [blocksmith, bs]
     permission: permission.blocksmith.admin
     permission-message: "You do not have permission to use this command!"
+  
+  breakable:
+    description: "protect blocks from being broken"
+    usage: "/breakable <args>"
+    aliases: [breakable, br]
+    permission: permission.blocksmith.admin
+    permission-message: "You do not have permission to use this command!"
