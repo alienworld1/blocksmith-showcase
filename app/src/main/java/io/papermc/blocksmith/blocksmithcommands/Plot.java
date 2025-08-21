@@ -73,7 +73,7 @@ public class Plot {
                   return Command.SINGLE_SUCCESS;
                 }
 
-                executor.teleport(spawnLocation);
+                player.teleport(spawnLocation);
               } else {
                 ctx.getSource().getSender().sendMessage(Component.text("plot " + plotId + " does not exist", NamedTextColor.RED));
               }

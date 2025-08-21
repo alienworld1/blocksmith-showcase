@@ -26,6 +26,7 @@ public class BlocksmithShowcase extends JavaPlugin implements Listener {
     this.getLifecycleManager().registerEventHandler(LifecycleEvents.COMMANDS, commands -> {
       commands.registrar().register(BlocksmithCommand.createCommand("blocksmith"), "Blocksmith's showcase admin command");
       commands.registrar().register(BreakableCommand.createCommand("breakable"), "Protect blocks from being broken");
+      commands.registrar().register(NickCommand.createCommand("nick"), "Set nickname of a player");
     });
 
     try {

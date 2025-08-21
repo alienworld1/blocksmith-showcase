@@ -12,6 +12,10 @@ permissions:
     description: "blocksmith admin"
     default: op
 
+  permission.blocksmith.builder:
+    description: "blocksmith builder"
+    default: notop
+
 commands:
   blocksmith:
     description: "blocksmith's showcase command"
@@ -25,4 +29,11 @@ commands:
     usage: "/breakable <args>"
     aliases: [breakable, br]
     permission: permission.blocksmith.admin
+    permission-message: "You do not have permission to use this command!"
+
+  nick:
+    description: "set nickname of a player"
+    usage: "/nick <nick_name>"
+    aliases: [nick, nickname]
+    permission: permission.blocksmith.builder
     permission-message: "You do not have permission to use this command!"
