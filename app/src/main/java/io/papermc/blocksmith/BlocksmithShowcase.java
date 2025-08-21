@@ -1,14 +1,18 @@
 package io.papermc.blocksmith;
 
+import io.papermc.blocksmith.database.DatabaseManager;
+
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
+
+import java.sql.SQLException;
+
 import org.bukkit.Bukkit;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.bukkit.scheduler.BukkitScheduler;
 
 import io.papermc.paper.plugin.lifecycle.event.types.LifecycleEvents;
 
@@ -17,7 +21,6 @@ public class BlocksmithShowcase extends JavaPlugin implements Listener {
   public void onEnable() {
     Bukkit.getPluginManager().registerEvents(this, this);
     
-    // Initialize the BreakableCommand system
     BreakableCommand.initialize(this.getDataFolder());
     
     this.getLifecycleManager().registerEventHandler(LifecycleEvents.COMMANDS, commands -> {
@@ -25,12 +28,26 @@ public class BlocksmithShowcase extends JavaPlugin implements Listener {
       commands.registrar().register(BreakableCommand.createCommand("breakable"), "Protect blocks from being broken");
     });
 
+    try {
+      DatabaseManager databaseManager = DatabaseManager.getInstance();
+      databaseManager.createTables();
+      getLogger().info("plugin has been initialized!");
+      
+    } catch (Exception e) {
+      getLogger().severe("Failed to enable BlocksmithShowcase plugin: " + e.getMessage());
+    }
   }
 
   @Override
   public void onDisable() {
     // Save protected blocks when the plugin is disabled
     BreakableCommand.onDisable();
+    DatabaseManager databaseManager = DatabaseManager.getInstance();
+    try {
+      databaseManager.close();
+    } catch (SQLException e) {
+      getLogger().severe("Failed to close database connection: " + e.getMessage());
+    }
   }
 
   @EventHandler
@@ -45,6 +62,4 @@ public class BlocksmithShowcase extends JavaPlugin implements Listener {
       event.getPlayer().sendMessage(Component.text("you can't break this block!", NamedTextColor.RED));
     }
   }
-
-
 }

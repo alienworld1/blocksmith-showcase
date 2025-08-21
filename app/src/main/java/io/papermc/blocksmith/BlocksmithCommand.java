@@ -10,6 +10,8 @@ import com.mojang.brigadier.Command;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 
 import io.papermc.blocksmith.blocksmithcommands.Theme;
+import io.papermc.blocksmith.blocksmithcommands.Plot;
+
 import io.papermc.paper.command.brigadier.CommandSourceStack;
 import io.papermc.paper.command.brigadier.Commands;
 import net.kyori.adventure.text.Component;
@@ -26,6 +28,7 @@ public class BlocksmithCommand {
       .then(waitingRoomCommand())
       .then(lobbyCommand())
       .then(theme.createCommand("theme"))
+      .then(Plot.createCommand("plot"))
       .build();
   }
 
